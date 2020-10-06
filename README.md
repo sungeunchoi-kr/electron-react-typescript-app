@@ -1,3 +1,5 @@
+* Ref: https://jsmanifest.com/create-your-first-react-desktop-application-in-electron-with-hot-reload/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
