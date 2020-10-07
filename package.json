@@ -2,10 +2,10 @@
   "name": "electron-react-typescript-app",
   "version": "0.1.0",
   "private": true,
-  "main": "src/start.js",
+  "main": "public/electron.js",
   "homepage": "./",
   "build": {
-    "appId": "com.introspect.muse",
+    "appId": "com.introspect.electron-react-typescript-app",
     "mac": {
       "category": "public.app-category.productivity",
       "hardenedRuntime": true,
@@ -14,33 +14,35 @@
         "NSCameraUsageDescription": "Allow camera to be used in video chat."
       }
     },
-    "extraMetadata": {
-      "main": "dist/electron.js"
-    },
     "directories": {
       "output": "install"
     },
     "files": [
-      "dist/**/*",
+      "build/**/*",
+      "node_modules/**/*",
       "package.json"
-    ]
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
   },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "cross-env": "^7.0.2",
+    "electron-is-dev": "^1.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
-    "typescript": "^4.0.3"
+    "react-scripts": "3.4.3"
   },
   "scripts": {
-    "start": "cross-env PORT=8080 BROWSER=none react-scripts start",
+    "server": "cross-env PORT=8080 BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron": "electron ."
+    "dev": "electron .",
+    "pack": "electron-builder -c.extraMetadata.main=build/electron.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -58,6 +60,8 @@
     ]
   },
   "devDependencies": {
-    "electron-builder": "^22.8.1"
+    "electron": "^10.1.3",
+    "electron-builder": "^22.8.1",
+    "typescript": "^4.0.3"
   }
 }
